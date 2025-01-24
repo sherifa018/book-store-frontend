@@ -10,7 +10,7 @@ const ShowBook = () => {
 
   useEffect(() => {
     axios
-      .get(`https://book-store-backend-topaz-one.vercel.app/books/${id}`)
+      .get(`https://book-store-backend-wypz.onrender.com/books/${id}`)
       .then((res) => {
         setBook(res.data);
       })

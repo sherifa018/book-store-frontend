@@ -10,7 +10,9 @@ const DeleteBook = () => {
   const { id } = useParams();
   const handleDeleteBook = () => {
     axios
-      .delete(`https://book-store-backend-topaz-one.vercel.app/books/${id}`)
+      .delete(
+        `https://https://book-store-backend-wypz.onrender.com/books/${id}`
+      )
       .then(() => {
         enqueueSnackbar("book Deleted successfully");
 

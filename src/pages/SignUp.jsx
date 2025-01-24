@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -14,7 +14,7 @@ const SignUp = () => {
       return;
     }
     axios
-      .post(`https://book-store-backend-topaz-one.vercel.app/user/signup`, {
+      .post(`https://book-store-backend-wypz.onrender.com/user/signup`, {
         username,
         email,
         password,

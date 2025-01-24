@@ -33,7 +33,7 @@ const CreateBook = () => {
       image,
     };
     axios
-      .post("https://book-store-backend-topaz-one.vercel.app/books", data)
+      .post("https://book-store-backend-wypz.onrender.com/books", data)
       .then(() => {
         enqueueSnackbar("book Created successfully");
         navigate("/");

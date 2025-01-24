@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/books")
+      .get("https://book-store-backend-wypz.onrender.com/books")
       .then((res) => {
         console.log(res.data.data);
 
