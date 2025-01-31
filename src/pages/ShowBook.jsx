@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 import axios from "axios";
+import { SERVER_URL } from "../../config";
 const ShowBook = () => {
   const [book, setBook] = useState({});
   const { id } = useParams();
@@ -10,7 +11,7 @@ const ShowBook = () => {
 
   useEffect(() => {
     axios
-      .get(`https://book-store-backend-wypz.onrender.com/books/${id}`)
+      .get(`${SERVER_URL}/books/${id}`)
       .then((res) => {
         setBook(res.data);
       })

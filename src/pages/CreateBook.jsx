@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import { useSnackbar } from "notistack";
+import { SERVER_URL } from "../../config";
 
 const CreateBook = () => {
   const [title, setTitle] = useState("");
@@ -33,7 +34,7 @@ const CreateBook = () => {
       image,
     };
     axios
-      .post("https://book-store-backend-wypz.onrender.com/books", data)
+      .post(`${SERVER_URL}/books`, data)
       .then(() => {
         enqueueSnackbar("book Created successfully");
         navigate("/");

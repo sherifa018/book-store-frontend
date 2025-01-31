@@ -2,6 +2,7 @@ import BackButton from "../components/BackButton";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { SERVER_URL } from "../../config";
 
 const DeleteBook = () => {
   const navigate = useNavigate();
@@ -10,9 +11,7 @@ const DeleteBook = () => {
   const { id } = useParams();
   const handleDeleteBook = () => {
     axios
-      .delete(
-        `https://https://book-store-backend-wypz.onrender.com/books/${id}`
-      )
+      .delete(`${SERVER_URL}/books/${id}`)
       .then(() => {
         enqueueSnackbar("book Deleted successfully");
 

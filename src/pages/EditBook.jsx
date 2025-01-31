@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { SERVER_URL } from "../../config";
 
 const EditBook = () => {
   const [title, setTitle] = useState("");
@@ -12,7 +13,7 @@ const EditBook = () => {
 
   useEffect(() => {
     axios
-      .get(`https://https://book-store-backend-wypz.onrender.com/books/${id}`)
+      .get(`${SERVER_URL}/books/${id}`)
       .then((res) => {
         setAuthor(res.data.author);
         setPublishYear(res.data.publishYear);

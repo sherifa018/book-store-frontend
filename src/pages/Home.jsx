@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
 import BooksTable from "../components/home/BooksTable";
+import { SERVER_URL } from "../../config";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -21,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://book-store-backend-wypz.onrender.com/books")
+      .get(`${SERVER_URL}/books`)
       .then((res) => {
         console.log(res.data.data);
 
@@ -49,3 +50,45 @@ const Home = () => {
 };
 
 export default Home;
+/**
+ * 
+ * 
+ *  const config={
+ *   
+ * headers:{
+ *  authorization:"Bearer " + token
+ * }
+ * }
+ * 
+ *   axios.post("http://createbook",{username:'abnet',password:123})
+ * 
+ * backen
+ * 
+ * const sampletokn= request.headers.authorization = Bearer ekljajfklasjklfjadsklhflads
+ * 
+ * 
+ * 
+ *   sampleToken.split(" ")[1]               ["bearer","skjfaklsjfkladsjaklf"]
+ * 
+ * 
+ *  jwt.verify(token,secretkey)
+ * 
+ *const decoded= jwt.verify(skjfaklsjfkladsjaklf,abcdef)
+
+
+ response.status(401).json({
+ message:"Invalid token or expired token",
+
+ data:eroor
+ })
+
+
+     
+
+         decoded.userId
+ * 
+ * 
+ * 
+ * 
+ * 
+ */

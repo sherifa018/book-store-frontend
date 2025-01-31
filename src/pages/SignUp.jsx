@@ -1,26 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { SERVER_URL } from "../../config";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const navigate = useNavigate();
+  const [emailSent, setemailSent] = useState(false);
 
   const handleSignUp = () => {
     if (!username || !email || !password) {
       return;
     }
     axios
-      .post(`https://book-store-backend-wypz.onrender.com/user/signup`, {
+      .post(`${SERVER_URL}/user/signup`, {
         username,
         email,
         password,
       })
       .then(() => {
-        navigate("/");
+        setemailSent(true);
       })
       .catch((error) => {
         console.error(error);
@@ -66,6 +66,16 @@ const SignUp = () => {
         <button className="btn btn-primary mt-3" onClick={handleSignUp}>
           Sign Up
         </button>
+        {emailSent && (
+          <p
+            style={{
+              color: "red",
+              padding: "10px",
+            }}
+          >
+            VERIFICATION EMAIL HAS BEEN SENT
+          </p>
+        )}
         <div>
           <p className="mx-4 ">
             Already have an account ?<Link to="/"> Login</Link>

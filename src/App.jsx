@@ -6,6 +6,7 @@ import EditBook from "./pages/EditBook";
 import DeleteBook from "./pages/DeleteBook";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import EmailVerfiy from "./pages/EmailVerfiy";
 const App = () => {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/books/details/:id" element={<ShowBook />} />
         <Route path="/books/edit/:id" element={<EditBook />} />
         <Route path="/books/delete/:id" element={<DeleteBook />} />
+        <Route path="/user/verify" element={<EmailVerfiy />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../../config";
+import { enqueueSnackbar } from "notistack";
 
 const Login = () => {
   const [username, setusername] = useState("");
@@ -24,7 +26,7 @@ const Login = () => {
     console.log(password);
 
     axios
-      .post("https://book-store-backend-wypz.onrender.com/user/login", {
+      .post(`${SERVER_URL}/user/login`, {
         username,
         password,
       })
@@ -42,6 +44,7 @@ const Login = () => {
         navigate("/home", { state: { username } });
       })
       .catch((error) => {
+        enqueueSnackbar(error.response.data.message);
         console.log(error);
       });
   };
