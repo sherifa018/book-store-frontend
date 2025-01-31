@@ -10,7 +10,6 @@ const EmailVerfiy = () => {
   useEffect(() => {
     const tokenValue = searchParams.get("token");
     console.log(tokenValue);
-
     axios
       .get(`${SERVER_URL}/user/verify?token=${tokenValue}`)
       .then(() => {
