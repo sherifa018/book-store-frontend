@@ -37,6 +37,7 @@ const Login = () => {
         // تخزين البيانات في Local Storage
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", response.data.username);
+        console.log(response.data);
 
         // عرض رسالة نجاح
 
@@ -44,6 +45,8 @@ const Login = () => {
         navigate("/home", { state: { username } });
       })
       .catch((error) => {
+        console.log(error);
+
         enqueueSnackbar(error.response.data.message);
         console.log(error);
       });
